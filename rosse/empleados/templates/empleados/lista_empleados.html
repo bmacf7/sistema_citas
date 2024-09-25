@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="text-3xl font-bold">Listado de Empleados</h1>
+<div class="overflow-x-auto">
+  <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+    <thead class="ltr:text-left rtl:text-right">
+      <tr>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Nombre
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Fecha de Ingreso
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          DNI
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Telefono
+        </th>
+        <th class="px-4 py-2"></th>
+      </tr>
+    </thead>
+
+    <tbody class="divide-y divide-gray-200">
+      {% for empleado in empleados %}
+      <tr>
+        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          {{ empleado.nombre }} {{ empleado.apellido }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ empleado.fecha_ingreso }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ empleado.dni }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ empleado.telefono }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2">
+          <a
+            href="#"
+            class="inline-block rounded bg-rose-500 px-4 py-2 text-xs font-medium text-white hover:bg-rose-600"
+          >
+            Ver Detalles
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
