@@ -1,0 +1,57 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="text-3xl font-bold">Listado de Mascotas</h1>
+<div class="overflow-x-auto">
+  <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+    <thead class="ltr:text-left rtl:text-right">
+      <tr>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Dueno
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Nombre
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Fecha Nacimiento
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Especie
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Raza
+        </th>
+        <th class="px-4 py-2"></th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+      {% for mascota in mascotas %}
+      <tr>
+        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          {{ mascota.cliente.nombre }} {{ mascota.cliente.apellido }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ mascota.nombre }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ mascota.fecha_nacimiento }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ mascota.especie }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ mascota.raza }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2">
+          <a
+            href="{% url 'detalle_mascota' mascota.id %}"
+            method="GET"
+            class="inline-block rounded bg-rose-500 px-4 py-2 text-xs font-medium text-white hover:bg-rose-700"
+          >
+            Ver Mascota
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
