@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="text-3xl font-bold">Listado de Clientes</h1>
+<div class="overflow-x-auto">
+  <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+    <thead class="ltr:text-left rtl:text-right">
+      <tr>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Nombre
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          DNI
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Telefono
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          E-mail
+        </th>
+        <th class="px-4 py-2"></th>
+      </tr>
+    </thead>
+
+    <tbody class="divide-y divide-gray-200">
+      {% for cliente in clientes %}
+      <tr>
+        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          {{cliente.nombre}} {{cliente.apellido}}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{cliente.dni}}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{cliente.telefono}}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{cliente.email}}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2">
+          <a
+            href="#"
+            class="inline-block rounded bg-rose-500 px-4 py-2 text-xs font-medium text-white hover:bg-rose-600"
+          >
+            Ver Detalles
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="text-3xl font-bold">Detalles de Cliente</h1>
+<h3>{{ cliente.nombre }} {{ cliente.apellido }}</h3>
+<h4>Mascotas</h4>
+<div class="overflow-x-auto rounded-lg border border-gray-200">
+  <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+    <thead class="ltr:text-left rtl:text-right">
+      <tr>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Nombre
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Fecha de Nacimiento
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Especie
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Raza
+        </th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+      {% for mascota in cliente.mascotas.all %}
+      <tr>
+        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          {{ mascota.nombre }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ mascota.fecha_nacimiento }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ mascota.especie }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ mascota.raza }}
+        </td>
+      </tr>
+      {% endfor %} {% endblock %}
+    </tbody>
+  </table>
+</div>
