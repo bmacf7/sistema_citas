@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="text-3xl font-bold">Listado de Servicios</h1>
+<div class="overflow-x-auto">
+  <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+    <thead class="ltr:text-left rtl:text-right">
+      <tr>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Nombre Servicio
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Precio
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Duracion
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Encargado
+        </th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+      {% for servicio in servicios %}
+      <tr>
+        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          {{ servicio.nombre }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ servicio.precio }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ servicio.duracion }}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{ servicio.realizado_por }}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
