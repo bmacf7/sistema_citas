@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% load tailwind_filters %} {% block content %}
+<h1>Editar Cita</h1>
+<form method="post">
+  {% csrf_token %} {{ form|crispy }}
+  <button
+    class="block rounded-md bg-rose-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-rose-600"
+    type="submit"
+  >
+    Agendar Cita
+  </button>
+</form>
+{% endblock %}
